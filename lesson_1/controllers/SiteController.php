@@ -125,4 +125,13 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    
+    /**
+     * Приветственная страница
+     * 
+     */
+    public function actionHello () 
+    {
+         return $this->render('hello');
+    }
 }
