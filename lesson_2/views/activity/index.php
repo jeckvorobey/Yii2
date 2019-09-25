@@ -1,11 +1,20 @@
+<?php
+use yii\helpers\Html;
+?>
 
-<h1>Активность: <?=$model->title; ?></h1>
-<?php if($model->startDay == $model->endDay): ?>
-    <p>Событие на <?=date("d.m.Y", $model->startDay)?></p>
+<h1><?=Html::encode($model['title']); ?></h1>
+  <p style="color: #00aa00" > Сегодня <?= $day ; ?> </p>
+
+<?php if($model['startDay'] == $model['endDay']): ?>
+    <p>Событие на <?=date("d.m.Y", $model['startDay'])?></p>
 <?php else: ?>
-    <p>Событие c <?=date("d.m.Y", $model->startDay)?>
-        $model->endDay)?></p>
+    <p>Событие c <?=date("d.m.Y", $model['startDay'])?>
+       <?php $model['endDay']?></p>
 <?php endif; ?>
 
-<h3><?=$model->getAttributeLabel('body') ?></h3>
-<div><?=$model->body ?></div>
+<p class="desk">Описание события:  <?= Html::encode($model['body']);?></p>
+
+<h4>Последняя посещенная страница: <?= $urlRef; ?></h4>
+
+
+

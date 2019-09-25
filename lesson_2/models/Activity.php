@@ -40,15 +40,22 @@ class Activity extends Model
      * @var string
      */
     public $body;
+    /**
+     * Блокировка событием
+     *
+     * @var boolean
+     */
+   public $block;
 
     public function attributeLabels()
     {
         return [
-            'title' => 'Название события',
-            'startDay' => 'Дата начала',
-            'endDay' => 'Дата завершения',
-            'idAuthor' => 'ID автора',
-            'body' => 'Описание события'
+            'title' => 'Событие 1',
+            'startDay' => '1569448800',
+            'endDay' => '1569887940',
+            'idAuthor' => '10001',
+            'body' => 'Это первое событие',
+            'block' => false
         ];
     }
 }
