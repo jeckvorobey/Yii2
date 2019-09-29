@@ -4,6 +4,7 @@
 namespace app\controllers;
 
 
+use app\models\NewTaskForm;
 use app\models\Tasks;
 use yii\base\Controller;
 
@@ -17,7 +18,7 @@ class TasksController extends Controller
     }
 
     public function actionNewtask(){
-        $task = new Tasks();
-        return $this->render('newtask', ['model' => $task->title]);
+
+        return $this->render('newtask', ['model' => new NewTaskForm()]);
     }
 }

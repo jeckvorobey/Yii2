@@ -4,7 +4,19 @@
 namespace app\models;
 
 
-class NewTaskForm
-{
+use yii\base\Model;
 
+class NewTaskForm extends Model
+{
+    public $taskID;
+    public $title;
+    public $body;
+
+    public function rules()
+    {
+        return [
+
+            [['title', 'body'], 'required']
+        ];
+    }
 }
