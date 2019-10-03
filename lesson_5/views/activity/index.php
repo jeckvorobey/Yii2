@@ -14,7 +14,5 @@ use yii\helpers\Html;
 
 <p class="desk">Описание события:  <?= Html::encode($model['body']);?></p>
 
-<h4>Последняя посещенная страница: <?= $urlRef; ?></h4>
-
 
 
