@@ -8,7 +8,7 @@ use app\models\Users;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
-class RegistrationForm extends ActiveRecord implements IdentityInterface
+class RegistrationForm extends Users implements IdentityInterface
 {
     public $username;
     public $email;
