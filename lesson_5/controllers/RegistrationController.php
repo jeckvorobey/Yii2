@@ -10,9 +10,10 @@ use yii\web\Controller;
 
 class RegistrationController extends Controller
 {
-    public function actionReg(){
+    public function actionReg()
+    {
         $formModel = new RegistrationForm();
-        if($formModel->load(Yii::$app->request->post())){
+        if ($formModel->load(Yii::$app->request->post())) {
             print_r($formModel);
         }
 
