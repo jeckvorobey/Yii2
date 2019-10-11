@@ -4,14 +4,12 @@
 namespace app\models;
 
 
-use app\models\Users;
-use yii\db\ActiveRecord;
+use Yii;
+use yii\base\Exception;
 use yii\web\IdentityInterface;
 
 class RegistrationForm extends Users implements IdentityInterface
 {
-    public $username;
-    public $email;
     public $password;
 
     public function rules()
@@ -19,10 +17,18 @@ class RegistrationForm extends Users implements IdentityInterface
         return [
             [['username', 'email', 'password'], 'required'],
             ['email', 'email'],
-            ['email', 'unique'],
-            ['username', 'unique'],
+            [['email', 'username'],'unique'],
             [['password'], 'string', 'min' => 8]
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if(!empty($this->password)){
+                $this->passwordHash = Yii::$app->security->generatePasswordHash($this->password);
+
+        }
+        return parent::beforeSave($insert);
     }
 
 
