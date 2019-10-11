@@ -10,8 +10,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     public $username;
     public $email;
     public $password;
-    public $authKey;
-    public $accessToken;
     public $passwordResetToken;
 
    /* private static $users = [
@@ -81,21 +79,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return $this->id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthKey()
-    {
-        return $this->authKey;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function validateAuthKey($authKey)
-    {
-        return $this->authKey === $authKey;
-    }
 
     /**
      * Validates password

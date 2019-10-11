@@ -14,18 +14,18 @@ class RegistrationForm extends Users implements IdentityInterface
 
     public function rules()
     {
-        return [
+        return array_merge([
             [['username', 'email', 'password'], 'required'],
             ['email', 'email'],
             [['email', 'username'],'unique'],
             [['password'], 'string', 'min' => 8]
-        ];
+        ], parent::rules());
     }
 
     public function beforeSave($insert)
     {
         if(!empty($this->password)){
-                $this->passwordHash = Yii::$app->security->generatePasswordHash($this->password);
+                $this->password_hash = Yii::$app->security->generatePasswordHash($this->password_hash);
 
         }
         return parent::beforeSave($insert);

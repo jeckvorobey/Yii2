@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="form-group">
             <div class="col-lg-offset-1 col-lg-11">
                 <?= Html::submitButton('Sign in', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                <?= Html::submitButton('Sign Up', ['class' => 'btn btn-secondary', 'name' => 'reg-button']) ?>
+                <?= Html::a('Sign Up',['/registration/reg'], ['class' => 'btn']) ?>
             </div>
         </div>
 

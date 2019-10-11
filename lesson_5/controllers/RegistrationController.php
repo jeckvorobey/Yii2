@@ -16,10 +16,16 @@ class RegistrationController extends Controller
         $formModel = new RegistrationForm();
         if (Yii::$app->request->isPost && $formModel->load(Yii::$app->request->post())) {
             if ($formModel->save()) {
-                return $this->controller->redirect([Url::to(['index'])]);
+                return Yii::$app->response->redirect('/');
             }
         }
 
         return $this->render('reg', ['model' => $formModel]);
+    }
+
+    public function actionLogOut()
+    {
+        Yii::$app->user->logout();
+        return Yii::$app->response->redirect('/');
     }
 }

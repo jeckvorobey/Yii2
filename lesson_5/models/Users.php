@@ -12,11 +12,8 @@ use Yii;
  * @property string $email
  * @property string $password_hash
  * @property string $password_reset_token
- * @property string $authKey
- * @property string $accessToken
  * @property string $created_at
  * @property string $updated_at
- *
  * @property Activity[] $activities
  * @property Avatars[] $avatars
  */
@@ -38,7 +35,7 @@ class Users extends \yii\db\ActiveRecord
         return [
             [['username', 'email'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
-            [['username', 'email', 'password_hash', 'authKey', 'accessToken'], 'string', 'max' => 255],
+            [['username', 'email', 'password_hash'], 'string', 'max' => 255],
             [['password_reset_token'], 'string', 'max' => 15],
         ];
     }
@@ -54,8 +51,6 @@ class Users extends \yii\db\ActiveRecord
             'email' => 'Email',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
-            'authKey' => 'Auth Key',
-            'accessToken' => 'Access Token',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
